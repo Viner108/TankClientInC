@@ -1,10 +1,11 @@
 ﻿#include "Tank.h"
+#include "Bullet.h"
 #include <QPainter>
 #include <QDebug>
 #include <QtMath>
 
-const int turretOffsetX = +30; // Смещение по оси X
-const int turretOffsetY = +20;  // Смещение по оси Y
+const int turretOffsetX = +30; // Смещение по оси X (скорректируем позже)
+const int turretOffsetY = +20;  // Смещение по оси Y (скорректируем позже)
 
 Tank::Tank(QWidget* parent)
     : QWidget(parent), x(0), y(0), rotationAngle(0), turretRotationAngle(0),
@@ -55,6 +56,20 @@ void Tank::rotateTurret(int angle) {
         turretRotationAngle += 360;
     }
     update(); // Перерисовываем виджет
+}
+
+void Tank::shoot() {
+    double radians = qDegreesToRadians(static_cast<double>(turretRotationAngle));
+    // Рассчитаем начальные координаты снаряда относительно центра башни
+    int turretCenterX = x + width() / 2;
+    int turretCenterY = y + height() / 2;
+    int turretLength = turretImage.height(); // Предполагаем, что длина пушки равна высоте изображения башни
+
+    // Скорректируем начальные координаты для снаряда
+    int bulletX = turretCenterX + static_cast<int>((turretLength / 2) * qCos(radians));
+    int bulletY = turretCenterY + static_cast<int>((turretLength / 2) * qSin(radians));
+    Bullet* bullet = new Bullet(bulletX, bulletY, turretRotationAngle, this->parentWidget());
+    bullet->show();
 }
 
 void Tank::paintEvent(QPaintEvent* event) {

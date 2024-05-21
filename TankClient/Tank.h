@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QPixmap>
+#include "Bullet.h"
 
 class Tank : public QWidget {
     Q_OBJECT
@@ -13,6 +14,7 @@ public:
     void moveTank(int dx, int dy);
     void rotateTank(int angle);
     void rotateTurret(int angle);
+    void shoot();
 
 protected:
     void paintEvent(QPaintEvent* event) override;

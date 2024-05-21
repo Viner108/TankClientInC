@@ -94,6 +94,7 @@
   <ItemGroup>
     <QtRcc Include="resource.qrc" />
     <QtUic Include="TankClient.ui" />
+    <ClCompile Include="Butter.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Tank.cpp" />
@@ -103,6 +104,9 @@
     <QtMoc Include="MainWindow.h" />
     <QtMoc Include="Scene.h" />
     <QtMoc Include="Tank.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Bullet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

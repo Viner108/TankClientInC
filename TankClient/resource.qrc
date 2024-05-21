@@ -9,5 +9,6 @@
         <file>tankNotActive2.png</file>
         <file>torre1.png</file>
         <file>torreNotActive.png</file>
+        <file>charge1.png</file>
     </qresource>
 </RCC>

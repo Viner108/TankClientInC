@@ -38,6 +38,9 @@ void Scene::keyPressEvent(QKeyEvent* event) {
         case Qt::Key_E:
             tank->rotateTurret(15); // Поворот башни по часовой стрелке
             break;
+        case Qt::Key_Space:
+            tank->shoot(); // Выстрел
+            break;
         }
 
     }
