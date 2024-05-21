@@ -1,22 +1,28 @@
-#include "Tank.h"
+п»ї#include "Tank.h"
 #include <QPainter>
 #include <QDebug>
 
 Tank::Tank(QWidget* parent)
-    : QWidget(parent), x(100), y(100), tankImage(":/image/tankActive.png") { // Используем путь к вашему изображению из ресурсов
+    : QWidget(parent), x(0), y(0), tankImage(":/image/tankActive.png") { // РСЃРїРѕР»СЊР·СѓРµРј РїСѓС‚СЊ Рє РІР°С€РµРјСѓ РёР·РѕР±СЂР°Р¶РµРЅРёСЋ РёР· СЂРµСЃСѓСЂСЃРѕРІ
     if (tankImage.isNull()) {
         qDebug() << "Failed to load tank image!";
     }
     setFixedSize(tankImage.size());
 }
 
-void Tank::move(int dx, int dy) {
+void Tank::setPosition(int x, int y) {
+    this->x = x;
+    this->y = y;
+    move(x, y); // РћР±РЅРѕРІР»СЏРµРј РїРѕР»РѕР¶РµРЅРёРµ РІРёРґР¶РµС‚Р°
+}
+
+void Tank::moveTank(int dx, int dy) {
     x += dx;
     y += dy;
-    update();
+    move(x, y); // РћР±РЅРѕРІР»СЏРµРј РїРѕР»РѕР¶РµРЅРёРµ РІРёРґР¶РµС‚Р°
 }
 
 void Tank::paintEvent(QPaintEvent* event) {
     QPainter painter(this);
-    painter.drawPixmap(0, 0, tankImage); // Координаты (0, 0) внутри виджета
+    painter.drawPixmap(0, 0, tankImage); // РљРѕРѕСЂРґРёРЅР°С‚С‹ (0, 0) РІРЅСѓС‚СЂРё РІРёРґР¶РµС‚Р°
 }

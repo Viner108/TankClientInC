@@ -9,7 +9,8 @@ class Tank : public QWidget {
 
 public:
     Tank(QWidget* parent = nullptr);
-    void move(int dx, int dy);
+    void setPosition(int x, int y);
+    void moveTank(int dx, int dy);
 
 protected:
     void paintEvent(QPaintEvent* event) override;

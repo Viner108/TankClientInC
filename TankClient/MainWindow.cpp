@@ -1,4 +1,4 @@
-#include "MainWindow.h"
+п»ї#include "MainWindow.h"
 #include "Scene.h"
 #include "Tank.h"
 
@@ -8,7 +8,8 @@ MainWindow::MainWindow(QWidget* parent)
     setCentralWidget(scene);
 
     Tank* tank = new Tank(scene);
-    tank->move(200, 200); // Установите координаты, чтобы танк был виден на сцене
+    scene->setTank(tank);
+    tank->setPosition(200, 200); // РЈСЃС‚Р°РЅРѕРІРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹, С‡С‚РѕР±С‹ С‚Р°РЅРє Р±С‹Р» РІРёРґРµРЅ РЅР° СЃС†РµРЅРµ
 }
 
 MainWindow::~MainWindow() {}

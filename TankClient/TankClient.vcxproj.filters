@@ -21,6 +21,18 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
+    <Filter Include="Source Files\dto">
+      <UniqueIdentifier>{ee32ee08-c04d-4a27-9558-1b75f19ef0a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dto">
+      <UniqueIdentifier>{a9600bbb-bd00-49af-bda3-5f0f93771e9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\view">
+      <UniqueIdentifier>{ac21c349-8b68-4010-9a8d-b3c9ff6c6fa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\view">
+      <UniqueIdentifier>{811e4259-bc61-4c4c-b1d8-807cb1635674}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="TankClient.ui">
@@ -34,25 +46,25 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Tank.cpp">
+      <Filter>Source Files\dto</Filter>
+    </ClCompile>
     <ClCompile Include="MainWindow.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\view</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tank.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\view</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Tank.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="Scene.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\dto</Filter>
     </QtMoc>
     <QtMoc Include="MainWindow.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\view</Filter>
+    </QtMoc>
+    <QtMoc Include="Scene.h">
+      <Filter>Header Files\view</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>
