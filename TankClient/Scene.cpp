@@ -21,10 +21,10 @@ void Scene::keyPressEvent(QKeyEvent* event) {
     if (tank) {
         switch (event->key()) {
         case Qt::Key_Left:
-            tank->moveTank(0, -10); // Перемещение влево
+            tank->rotateTank(-15); // Поворот против часовой стрелки
             break;
         case Qt::Key_Right:
-            tank->moveTank(0, 10); // Перемещение вправо
+            tank->rotateTank(15); // Поворот по часовой стрелке
             break;
         case Qt::Key_Up:
             tank->moveTank(10, 0); // Перемещение вверх
@@ -32,6 +32,13 @@ void Scene::keyPressEvent(QKeyEvent* event) {
         case Qt::Key_Down:
             tank->moveTank(-10, 0); // Перемещение вниз
             break;
+        case Qt::Key_Q:
+            tank->rotateTurret(-15); // Поворот башни против часовой стрелки
+            break;
+        case Qt::Key_E:
+            tank->rotateTurret(15); // Поворот башни по часовой стрелке
+            break;
         }
+
     }
 }

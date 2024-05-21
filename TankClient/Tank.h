@@ -11,6 +11,8 @@ public:
     Tank(QWidget* parent = nullptr);
     void setPosition(int x, int y);
     void moveTank(int dx, int dy);
+    void rotateTank(int angle);
+    void rotateTurret(int angle);
 
 protected:
     void paintEvent(QPaintEvent* event) override;
@@ -18,7 +20,10 @@ protected:
 private:
     int x;
     int y;
+    int rotationAngle; // ”гол поворота танка
+    int turretRotationAngle; // ”гол поворота башни
     QPixmap tankImage;
+    QPixmap turretImage;
 };
 
 #endif // TANK_H
