@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>tankActive.jpg</file>
+        <file>tankActive.png</file>
+        <file>tankActive1.png</file>
+        <file>tankActive2.png</file>
+        <file>tankDead.png</file>
+        <file>tankNonActive.png</file>
+        <file>tankNotActive2.png</file>
+        <file>torre1.png</file>
+        <file>torreNotActive.png</file>
+    </qresource>
+</RCC>
