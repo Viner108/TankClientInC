@@ -1,19 +1,18 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include <QWidget>
+#include <QGraphicsScene>
 #include "Tank.h"
 
-class Scene : public QWidget {
+class Scene : public QGraphicsScene {
     Q_OBJECT
 
 public:
-    Scene(QWidget* parent = nullptr);
-    void setTank(Tank* tank);
+    Scene(QObject* parent = nullptr);
+    void keyPressEvent(QKeyEvent* event) override;
 
 protected:
-    void paintEvent(QPaintEvent* event) override;
-    void keyPressEvent(QKeyEvent* event) override;
+    void drawBackground(QPainter* painter, const QRectF& rect) override;
 
 private:
     Tank* tank;

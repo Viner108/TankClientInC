@@ -58,6 +58,9 @@
     <ClCompile Include="Butter.cpp">
       <Filter>Source Files\dto</Filter>
     </ClCompile>
+    <ClCompile Include="Turret.cpp">
+      <Filter>Source Files\dto</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Tank.h">
@@ -70,6 +73,9 @@
       <Filter>Header Files\view</Filter>
     </QtMoc>
     <QtMoc Include="Bullet.h">
+      <Filter>Header Files\dto</Filter>
+    </QtMoc>
+    <QtMoc Include="Turret.h">
       <Filter>Header Files\dto</Filter>
     </QtMoc>
   </ItemGroup>

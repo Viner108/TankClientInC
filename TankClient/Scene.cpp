@@ -1,47 +1,21 @@
 ﻿#include "Scene.h"
-#include <QPainter>
 #include <QKeyEvent>
+#include <QPainter>
 
-Scene::Scene(QWidget* parent)
-    : QWidget(parent), tank(nullptr) {
-    setFixedSize(800, 600);
-    setFocusPolicy(Qt::StrongFocus); // Даем фокус для получения событий клавиатуры
-}
-
-void Scene::setTank(Tank* tank) {
-    this->tank = tank;
-}
-
-void Scene::paintEvent(QPaintEvent* event) {
-    QPainter painter(this);
-    painter.fillRect(rect(), QColor(164, 191, 51)); // Задаем цвет фона сцены
+Scene::Scene(QObject* parent)
+    : QGraphicsScene(parent) {
+    tank = new Tank();
+    addItem(tank);
+    tank->setPos(400, 300); // Устанавливаем танк в центр сцены
 }
 
 void Scene::keyPressEvent(QKeyEvent* event) {
     if (tank) {
-        switch (event->key()) {
-        case Qt::Key_Left:
-            tank->rotateTank(-15); // Поворот против часовой стрелки
-            break;
-        case Qt::Key_Right:
-            tank->rotateTank(15); // Поворот по часовой стрелке
-            break;
-        case Qt::Key_Up:
-            tank->moveTank(10, 0); // Перемещение вверх
-            break;
-        case Qt::Key_Down:
-            tank->moveTank(-10, 0); // Перемещение вниз
-            break;
-        case Qt::Key_Q:
-            tank->rotateTurret(-15); // Поворот башни против часовой стрелки
-            break;
-        case Qt::Key_E:
-            tank->rotateTurret(15); // Поворот башни по часовой стрелке
-            break;
-        case Qt::Key_Space:
-            tank->shoot(); // Выстрел
-            break;
-        }
-
+        tank->keyPressEvent(event);
     }
+}
+
+void Scene::drawBackground(QPainter* painter, const QRectF& rect) {
+    Q_UNUSED(rect);
+    painter->fillRect(sceneRect(), QColor(164, 191, 51)); // Устанавливаем цвет фона
 }

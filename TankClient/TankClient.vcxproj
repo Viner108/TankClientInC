@@ -92,6 +92,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Turret.cpp" />
     <QtRcc Include="resource.qrc" />
     <QtUic Include="TankClient.ui" />
     <ClCompile Include="Butter.cpp" />
@@ -107,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Bullet.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Turret.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

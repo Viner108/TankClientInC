@@ -1,31 +1,22 @@
 #ifndef TANK_H
 #define TANK_H
 
-#include <QWidget>
-#include <QPixmap>
-#include "Bullet.h"
+#include <QGraphicsPixmapItem>
+#include <QObject>
+#include "Turret.h"
 
-class Tank : public QWidget {
+class Tank : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 
 public:
-    Tank(QWidget* parent = nullptr);
-    void setPosition(int x, int y);
-    void moveTank(int dx, int dy);
-    void rotateTank(int angle);
-    void rotateTurret(int angle);
-    void shoot();
-
-protected:
-    void paintEvent(QPaintEvent* event) override;
+    Tank(QGraphicsItem* parent = nullptr);
+    void keyPressEvent(QKeyEvent* event) override;
 
 private:
-    int x;
-    int y;
     int rotationAngle; // ”гол поворота танка
-    int turretRotationAngle; // ”гол поворота башни
-    QPixmap tankImage;
-    QPixmap turretImage;
+    Turret* turret;
+
+    void shoot();
 };
 
 #endif // TANK_H

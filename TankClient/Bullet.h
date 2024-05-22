@@ -1,24 +1,22 @@
 #ifndef BULLET_H
 #define BULLET_H
 
-#include <QWidget>
-#include <QPixmap>
+#include <QGraphicsPixmapItem>
+#include <QObject>
+#include <QGraphicsScene>
 
-class Bullet : public QWidget {
+class Bullet : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 
 public:
-    Bullet(int startX, int startY, int angle, QWidget* parent = nullptr);
-    void moveBullet();
+    Bullet(int startX, int startY, int angle);
 
-protected:
-    void paintEvent(QPaintEvent* event) override;
+public slots:
+    void move();
 
 private:
-    int x;
-    int y;
-    int angle; // Угол движения снаряда
-    QPixmap bulletImage;
+    int angle;
+    QTimer* timer;
 };
 
 #endif // BULLET_H

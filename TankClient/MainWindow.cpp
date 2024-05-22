@@ -1,15 +1,16 @@
 ﻿#include "MainWindow.h"
-#include "Scene.h"
 #include "Tank.h"
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent) {
-    Scene* scene = new Scene(this);
-    setCentralWidget(scene);
+    scene = new Scene(this);
+    view = new QGraphicsView(scene, this);
+    setCentralWidget(view);
 
-    Tank* tank = new Tank(scene);
-    scene->setTank(tank);
-    tank->setPosition(200, 200); // Установите координаты, чтобы танк был виден на сцене
+    scene->setSceneRect(0, 0, 800, 600);
+    view->setFixedSize(800, 600);
+
+    setFocusPolicy(Qt::StrongFocus);
 }
 
 MainWindow::~MainWindow() {}
