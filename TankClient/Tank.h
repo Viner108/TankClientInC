@@ -1,4 +1,4 @@
-#ifndef TANK_H
+п»ї#ifndef TANK_H
 #define TANK_H
 
 #include <QGraphicsPixmapItem>
@@ -10,13 +10,11 @@ class Tank : public QObject, public QGraphicsPixmapItem {
 
 public:
     Tank(QGraphicsItem* parent = nullptr);
-    void keyPressEvent(QKeyEvent* event) override;
+    void updateTurretRotation(int angle);
 
 private:
-    int rotationAngle; // Угол поворота танка
+    int rotationAngle; // РЈРіРѕР» РїРѕРІРѕСЂРѕС‚Р° С‚Р°РЅРєР°
     Turret* turret;
-
-    void shoot();
 };
 
 #endif // TANK_H

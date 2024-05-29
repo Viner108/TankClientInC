@@ -1,9 +1,9 @@
-#include "Turret.h"
+п»ї#include "Turret.h"
 
 Turret::Turret(QGraphicsItem* parent)
     : QGraphicsPixmapItem(parent), rotationAngle(0) {
-    setPixmap(QPixmap(":/image/torre1.png").scaled(25, 25)); // Масштабируем изображение башни
-    setTransformOriginPoint(boundingRect().center()); // Устанавливаем центр поворота башни
+    setPixmap(QPixmap(":/image/torre1.png").scaled(25, 25)); // РњР°СЃС€С‚Р°Р±РёСЂСѓРµРј РёР·РѕР±СЂР°Р¶РµРЅРёРµ Р±Р°С€РЅРё
+    setTransformOriginPoint(boundingRect().center()); // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С†РµРЅС‚СЂ РїРѕРІРѕСЂРѕС‚Р° Р±Р°С€РЅРё
 }
 
 void Turret::rotate(int angle) {

@@ -1,25 +1,32 @@
-#include "Bullet.h"
-#include <QTimer>
+ï»¿#include "Bullet.h"
 #include <QtMath>
 #include <QGraphicsScene>
+#include <QDebug>
 
-Bullet::Bullet(int startX, int startY, int angle)
-    : angle(angle) {
-    setPixmap(QPixmap(":/image/charge1.png").scaled(10, 10)); // Ìàñøòàáèðóåì èçîáðàæåíèå ñíàðÿäà
+Bullet::Bullet(QPointF startPos, double angle, QGraphicsItem* parent)
+    : QGraphicsPixmapItem(parent), angle(angle) {
+    setPixmap(QPixmap(":/image/charge1.png").scaled(10, 10)); // ÐœÐ°ÑÑˆÑ‚Ð°Ð±Ð¸Ñ€ÑƒÐµÐ¼ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ ÑÐ½Ð°Ñ€ÑÐ´Ð°
     setRotation(angle);
+    setPos(startPos);
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &Bullet::move);
     timer->start(50);
+    qDebug() << "Bullet created at position:" << startPos << "angle:" << angle;
+}
+
+Bullet::~Bullet() {
+    qDebug() << "Bullet destroyed";
 }
 
 void Bullet::move() {
-    double radians = qDegreesToRadians(static_cast<double>(angle));
+    double radians = qDegreesToRadians(angle);
     int dx = static_cast<int>(20 * qCos(radians));
     int dy = static_cast<int>(20 * qSin(radians));
     setPos(x() + dx, y() + dy);
 
-    if (qAbs(x() - pos().x()) > 200 || qAbs(y() - pos().y()) > 200) {
+    if (qAbs(x()) > 200 || qAbs(y()) > 200) {
+        qDebug() << "Bullet deleted at position:" << pos();
         scene()->removeItem(this);
         delete this;
     }
